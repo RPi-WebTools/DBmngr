@@ -1,0 +1,22 @@
+{
+  "name": "dbmngr",
+  "version": "1.0.0",
+  "description": "Includes needed functions to interact with SQLite databases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPi-WebTools/DBmngr.git"
+  },
+  "author": "Viperinius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RPi-WebTools/DBmngr/issues"
+  },
+  "homepage": "https://github.com/RPi-WebTools/DBmngr#readme",
+  "dependencies": {
+    "sqlite3": "^4.1.1"
+  }
+}
