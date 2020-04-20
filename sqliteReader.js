@@ -29,9 +29,9 @@ class SQLiteReader {
      * Read all rows (of given columns)
      * @param {string} table Name of the table
      * @param {Array<string>} cols Which columns to include in the query, provide none for all
-     * @param {Array} params 
+     * @param {Object<string>} params keys are orderBy, orderOrientation, whereCol and/or whereCompare
      */
-    readAllRows (table, cols=[], params=[]) {
+    readAllRows (table, cols=[], params={}) {
         let sqlCmd = 'SELECT '
         
         // set columns
@@ -41,7 +41,7 @@ class SQLiteReader {
         // set table
         sqlCmd += ' FROM ' + table
 
-        if (params.length) {
+        if (Object.keys(params).length) {
             sqlCmd += ' '
             
             // set order

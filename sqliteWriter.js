@@ -2,7 +2,7 @@ const DAO = require('./dao')
 
 class SQLiteWriter {
     /**
-     * Reader for SQLite databases
+     * Writer for SQLite databases
      * @param {DAO} dao 
      */
     constructor (dao) {
