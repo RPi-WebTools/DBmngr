@@ -117,6 +117,36 @@ class SQLiteWriter {
 
         return this.dao.run(sql, flattenedData)
     }
+
+    /**
+     * Update a row with new data
+     * @param {string} table Table name
+     * @param {Array<string>} cols Column names to update
+     * @param {Array|Object} data New data to use
+     * @param {string} whereCol From which column to get the row from
+     * @param {*} whereValue Which value to search for at whereCol
+     */
+    updateRow (table, cols, data, whereCol, whereValue) {
+        let sql = 'UPDATE ' + table + ' SET '
+
+        let dataArray = []
+        if (Array.isArray(data)) {
+            dataArray = data
+        }
+
+        for (let i = 0; i < cols.length; i++) {
+            sql += cols[i] + ' = ?'
+            if (i < (cols.length - 1)) {
+                sql += ', '
+            }
+
+            if (!Array.isArray(data)) {
+                dataArray.push(data[cols[i]])
+            }
+        }
+        sql += ' WHERE ' + whereCol + ' = ' + whereValue
+        return this.dao.run(sql, dataArray)
+    }
 }
 
 module.exports = SQLiteWriter
