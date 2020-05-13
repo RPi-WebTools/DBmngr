@@ -147,6 +147,18 @@ class SQLiteWriter {
         sql += ' WHERE ' + whereCol + ' = ' + whereValue
         return this.dao.run(sql, dataArray)
     }
+
+    /**
+     * Delete a row from a table
+     * @param {string} table Table name
+     * @param {string} whereCol By which column to get the row
+     * @param {*} whereValue Which value to search for at whereCol
+     */
+    deleteRow (table, whereCol, whereValue) {
+        let sql = 'DELETE FROM ' + table
+        sql += 'WHERE' + whereCol + ' = ' + whereValue
+        return this.dao.run(sql)
+    }
 }
 
 module.exports = SQLiteWriter
