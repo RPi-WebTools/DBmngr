@@ -156,7 +156,7 @@ class SQLiteWriter {
      */
     deleteRow (table, whereCol, whereValue) {
         let sql = 'DELETE FROM ' + table
-        sql += 'WHERE' + whereCol + ' = ' + whereValue
+        sql += ' WHERE ' + whereCol + ' = ' + whereValue
         return this.dao.run(sql)
     }
 }
